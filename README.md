@@ -4,7 +4,7 @@ This is a sample solution for order management primarily geared toward Java deve
 
 ## Solution Overview
 
-A local company has reached out to help build an order processing system in Azure. For the first portion of this project, you will rehost an existing order management app and customer API that the company already uses. For the second portion of this procect, you will build out an Azure Functions driven processing pipeline to create the overall solution this company needs.
+Your company has asked you to help build an order processing system in Azure. For the first portion of this project, you will rehost an existing order management app and customer API that your company already uses. For the second portion of this project, you will build out an Azure Functions driven processing pipeline to complete the overall solution.
 
 ![Solution Architecture](./assets/architecture.png)
 
