@@ -35,10 +35,12 @@
                 <mxCell id="11" value="Order Database&lt;br&gt;(Azure Cosmos DB)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" parent="1" vertex="1">
                     <mxGeometry x="414" y="225" width="64" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.486;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="14" target="21" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.486;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="14" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="585.02" y="358.68000000000006" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.5;entryY=-0.057;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.559;exitY=-0.05;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" target="11" edge="1" source="14">
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.5;entryY=-0.057;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.559;exitY=-0.05;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="14" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="554" y="221" as="sourcePoint"/>
                         <Array as="points">
@@ -50,11 +52,10 @@
                 <mxCell id="14" value="Pay Order&lt;br&gt;(Azure Functions)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="550" y="227" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;" parent="1" source="21" target="24" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="21" value="Order Ship Messages&lt;br&gt;(Azure Service Bus)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Service_Bus.svg;" parent="1" vertex="1">
-                    <mxGeometry x="551" y="360" width="70" height="60" as="geometry"/>
+                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;" parent="1" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="586" y="420" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;exitX=1.059;exitY=0.467;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="24" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -77,6 +78,12 @@
                 </mxCell>
                 <mxCell id="30" value="Order Management App&lt;br&gt;(Azure Storage)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;" parent="1" vertex="1">
                     <mxGeometry x="170" y="291" width="65" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Order Ship Event&lt;br&gt;(Azure Event Grid)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/Event_Grid_Topics.svg;" parent="1" vertex="1">
+                    <mxGeometry x="553" y="360" width="67" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Logging and Metrics&lt;br&gt;(Application Insights)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/management_governance/Application_Insights.svg;" vertex="1" parent="1">
+                    <mxGeometry x="312" y="487" width="44" height="63" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
