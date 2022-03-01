@@ -4,7 +4,8 @@ This workshop walks through hosting an Azure-hosted solution utlizing Azure PaaS
 
 ## Solution Overview
 
-Your company has asked you help build an order processing system in Azure. For the first portion of this project, you will rehost an existing Order Management App and Customer API that your company already uses. For the second portion of this project, you will build out an Azure Functions driven processing pipeline for a full order processing pipeline.
+Your company has asked you to help build an order processing system in Azure. For the first portion of this project, you will rehost an existing Order Management App and Customer API that your company already uses. For the second portion of this project, you will build out an Azure Functions driven processing pipeline to complete the overall solution.
+
 
 ![Solution Architecture](./assets/images/architecture-dark.png#gh-dark-mode-only)
 ![Solution Architecture](./assets/images/architecture-light.png#gh-light-mode-only)
