@@ -10,6 +10,7 @@ Your company has asked you to help build an order processing system in Azure. Fo
 
 To accomplish this task, you will work through the following steps:
 
+1. [Repository Setup](#repository-setup)
 1. [Prepare you development environment](#dev-environment-setup)
 1. [Set up common Azure resources](#set-up-common-azure-resources)
 1. [Deploy the Order Management App](#deploy-the-order-management-app)
@@ -17,6 +18,10 @@ To accomplish this task, you will work through the following steps:
 1. Set up the Order API resources and database.
 1. Create the Order API Function App and deploy it.
 1. Set up the Order Processing resources, modify the Function App, and deploy it.
+
+## Repository Setup
+
+If the origin repository has not been forked into your personal GitHub account or your Orgnaization's GitHub account, please do so before completing any additional steps.
 
 ## Dev Environment Setup
 
@@ -124,3 +129,4 @@ The Customer API is a Spring API that interacts with Customer database to track 
         1. In the [Azure Portal](https://portal.azure.com), navigate to your App Service ***Monitoring > Log stream*** to identify the issue
         1. In the Azure SQL Server resource, navigate to ***Security > Firewalls and virtual networks***
             * Allow Azure services and resources to access this server: Yes
+        1. Navigate to your Customer API again
