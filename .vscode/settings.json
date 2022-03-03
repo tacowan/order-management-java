@@ -1,3 +1,11 @@
 {
-    "appService.defaultWebAppToDeploy": "None"
+    "appService.defaultWebAppToDeploy": "None",
+    "azureFunctions.javaBuildTool": "maven",
+    "azureFunctions.deploySubpath": "functions/target/azure-functions/functions-1646321065805",
+    "azureFunctions.projectLanguage": "Java",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "package (functions)",
+    "azureFunctions.templateFilter": "Verified",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
