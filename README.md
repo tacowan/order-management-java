@@ -15,13 +15,12 @@ To accomplish this task, you will work through the following steps:
 1. [Set up common Azure resources](#set-up-common-azure-resources)
 1. [Deploy the Order Management App](#deploy-the-order-management-app)
 1. [Deploy the Customer API and Database](#deploy-the-customer-api-and-database)
-1. Set up the Order API resources and database.
-1. Create the Order API Function App and deploy it.
-1. Set up the Order Processing resources, modify the Function App, and deploy it.
+1. [Deploy the Order API and Database](#deploy-the-order-api-and-database)
+1. [Deploy the Order Processing Pipeline]
 
 ## Repository Setup
 
-If the origin repository has not been forked into your personal GitHub account or your Orgnaization's GitHub account, please do so before completing any additional steps.
+If the origin repository has not been forked into your personal GitHub account or your orgnaization's GitHub Organization, please do so before completing any additional steps.
 
 ## Dev Environment Setup
 
@@ -45,7 +44,7 @@ For this project, you will have a number of Azure resources used for common conc
     * Resource Mode: Workspace-based
     * Log Analytics Workspace: order-management-\[uniquename\]-log
 1. Create a Storage Account to hold files and assets
-    * Name: ordermanagement\[uniquename\]st
+    * Name: ordermanagement[uniquename]st
     * Redundancy: Locally-redundant storage (LRS)
 
 ## Deploy the Order Management App
@@ -101,7 +100,7 @@ The Customer API is a Spring API that interacts with Customer database to track 
 
 1. Provision and deploy the Customer API
     1. In the [Azure Portal](https://portal.azure.com), create an Azure App Service Web App
-        * Name: customer-api-/[uniquename/]-app
+        * Name: customer-api-[uniquename]-app
         * Runtime stack: Java 11
         * Linux Plan: Create New
             * Name: customer-api-plan
@@ -109,7 +108,7 @@ The Customer API is a Spring API that interacts with Customer database to track 
     1. Update the Web App settings with the database information
         1. Navigate to the App Service Web App
         1. In the side menu, select ***Settings > Configuration*** and add the following Application Settings
-            * DB_SERVER_NAME: customer-/[uniquename/]-sqlsvr
+            * DB_SERVER_NAME: customer-[uniquename]-sqlsvr
             * DB_NAME: customer-sqldb
             * DB_USERNAME: customeradmin
             * DB_PASSWORD: ABCD1234abcd!
@@ -125,8 +124,22 @@ The Customer API is a Spring API that interacts with Customer database to track 
         1. In the file explorer, right click on ***customer-api > target > customer-api-0.0.1-SNAPSHOT.jar*** and select **Deploy to Web App**
         1. Select your Subscription and Web App
     1. Troubleshoot your Customer API
-        1. Navigate to your Customer API in your browser
+        1. Navigate to your Customer API in your browser (<https://customer-api-[uniquename>]-app.azurewebsites.net)
         1. In the [Azure Portal](https://portal.azure.com), navigate to your App Service ***Monitoring > Log stream*** to identify the issue
         1. In the Azure SQL Server resource, navigate to ***Security > Firewalls and virtual networks***
             * Allow Azure services and resources to access this server: Yes
         1. Navigate to your Customer API again
+
+1. Access the Customer API through the Order Management App
+    1. Navigate to the Order Management App (<https://[storageaccountname>].z13.web.core.windows.net)
+    1. In the settings, add in the base URL for the Customer API (<https://customer-api-[uniquename>]-app.azurewebsites.net)
+    1. The navigate to the Customer section after it appears
+    1. Troubleshoot calls to the Customer APi
+        1. Open up the developer tools in your browser (F12) to troubleshoot the problem
+            1. Note the [CORS error](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors)
+        1. Navigate to the Customer API in the [Azure Portal](https://portal.azure.com)
+        1. In the side menu, select ***API > CORS*** and add * to the list of Allowed Origins
+            1. Note, it will take a few minutes for this update to occur once you save
+        1. Refresh the Order Management App to show the list of customers
+
+## Deploy the Order API and Database
