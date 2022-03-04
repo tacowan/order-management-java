@@ -22,7 +22,7 @@ To accomplish this task, you will work through the following steps:
 
 If the origin repository has not been forked into your personal GitHub account or your orgnaization's GitHub Organization, please do so before completing any additional steps.
 <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/joelwaymack/order-management-java" data-icon="octicon-repo-forked" aria-label="Fork joelwaymack/order-management-java on Github">Fork</a>
+<a class="github-button" href="https://github.com/joelwaymack/order-management-java/fork" data-icon="octicon-repo-forked" aria-label="Fork joelwaymack/order-management-java on Github">Fork</a>
 
 ## Dev Environment Setup
 
