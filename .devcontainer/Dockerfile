@@ -1,23 +1,31 @@
-# Find the Dockerfile at this URL
-# https://github.com/Azure/azure-functions-docker/blob/dev/host/4/bullseye/amd64/java/java11/java11-core-tools.Dockerfile
-FROM mcr.microsoft.com/azure-functions/java:4-java11-core-tools
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.222.0/containers/java/.devcontainer/base.Dockerfile
 
-# Uncomment following lines If you want to enable Development Container Script
-# For more details https://github.com/microsoft/vscode-dev-containers/tree/main/script-library
+# [Choice] Java version (use -bullseye variants on local arm64/Apple Silicon): 11, 17, 11-bullseye, 17-bullseye, 11-buster, 17-buster
+ARG VARIANT="17-bullseye"
+FROM mcr.microsoft.com/vscode/devcontainers/java:0-${VARIANT}
 
-# Avoid warnings by switching to noninteractive
-# ENV DEBIAN_FRONTEND=noninteractive
+# [Option] Install Maven
+ARG INSTALL_MAVEN="false"
+ARG MAVEN_VERSION=""
+# [Option] Install Gradle
+ARG INSTALL_GRADLE="false"
+ARG GRADLE_VERSION=""
+RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install maven \"${MAVEN_VERSION}\""; fi \
+    && if [ "${INSTALL_GRADLE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install gradle \"${GRADLE_VERSION}\""; fi
 
-# # Comment out these lines if you want to use zsh.
+# [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
+ARG NODE_VERSION="none"
+RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-# ARG INSTALL_ZSH=true
-# ARG USERNAME=vscode
-# ARG USER_UID=1000
-# ARG USER_GID=$USER_UID
+# [Optional] Uncomment this section to install additional OS packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-# RUN apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/common-debian.sh -o /tmp/common-script.sh \
-#     && /bin/bash /tmp/common-script.sh "$INSTALL_ZSH" "$USERNAME" "$USER_UID" "$USER_GID" \
-#     && rm /tmp/common-script.sh 
+# [Optional] Uncomment this line to install global node packages.
+# RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
 RUN apt-get update && apt-get install -y \
   libsecret-1-0 \
   && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://aka.ms/downloadazcopy-v10-linux; tar -xvf downloadazcopy-v10-linux; cp ./azcopy_linux_amd64_*/azcopy /usr/bin/; chmod 755 /usr/bin/azcopy
